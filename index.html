@@ -239,20 +239,20 @@ input::placeholder {
         </div>
 
 <div class="preset-row">
-    <button class="preset-btn" onclick="loadLottoPreset('epic')" style="display:flex;flex-direction:column;align-items:center;gap:4px;">🔴 Epic(2000A)<img src="https://eaniceday.github.io/gaicon/images/goldwing_holy.png" style="width:26px;height:26px;object-fit:contain;"></button>
-    <button class="preset-btn" onclick="loadLottoPreset('epic2900')" style="display:flex;flex-direction:column;align-items:center;gap:4px;">🔴 Epic(2900A)<img src="https://eaniceday.github.io/gaicon/images/goldwing_dark.png" style="width:26px;height:26px;object-fit:contain;"></button>
+    <button class="preset-btn" onclick="loadLottoPreset('epic')" style="display:flex;flex-direction:column;align-items:center;gap:4px;">🔴 Limited(2000A)<img src="https://eaniceday.github.io/gaicon/images/pay_pandora.png" style="width:26px;height:26px;object-fit:contain;"></button>
+    <button class="preset-btn" onclick="loadLottoPreset('epic2900')" style="display:flex;flex-direction:column;align-items:center;gap:4px;">🔴 Epic(2900A)<img src="https://eaniceday.github.io/gaicon/images/coupon_funple_gold.png" style="width:26px;height:26px;object-fit:contain;"></button>
     <button class="preset-btn" onclick="loadLottoPreset('amped')" style="display:flex;flex-direction:column;align-items:center;gap:4px;">🔵 Amped<img src="https://eaniceday.github.io/gaicon/images/enchant_rank.png" style="width:26px;height:26px;object-fit:contain;"></button>
     <button class="preset-btn" onclick="loadLottoPreset('lotto')" style="display:flex;flex-direction:column;align-items:center;gap:4px;">🟢 Lotto<img src="https://eaniceday.github.io/gaicon/images/enchant_rank.png" style="width:26px;height:26px;object-fit:contain;"></button>
     <button class="preset-btn" onclick="loadLottoPreset('free_amped')">🟣 Free Amped</button>
     <button class="preset-btn" onclick="loadLottoPreset('free_lotto')">🟡 Free Lotto</button>
-    <button class="preset-btn" onclick="loadLottoPreset('activity')" style="display:flex;flex-direction:column;align-items:center;gap:4px;">🟠 Event(1000A)<img src="https://eaniceday.github.io/gaicon/images/labyblue_rune.png" style="width:26px;height:26px;object-fit:contain;"></button>
+    <button class="preset-btn" onclick="loadLottoPreset('activity')" style="display:flex;flex-direction:column;align-items:center;gap:4px;">🟠 Event(1000A)<img src="https://eaniceday.github.io/gaicon/images/pay_light_blue.png" style="width:26px;height:26px;object-fit:contain;"></button>
     <button class="reset-btn" onclick="resetLottoTableSilent()">🗑️ RESET</button>
 </div>
         
         <div style="display:grid; grid-template-columns: 2fr 1fr; gap:10px; margin-bottom:10px; background:#fff3cd; padding:15px; border-radius:10px; border:1px solid #ffeeba;">
             <div>
                 <label>+ Medal ID</label>
-                <input id="medalTxt" placeholder="เช่น medal_ga2:1" oninput="generate(); updatePlusMedalPreview(); updatePlusMedalCodeDisplay()">
+                <input id="medalTxt" placeholder="เช่น medal_event_gasha:1" oninput="generate(); updatePlusMedalPreview(); updatePlusMedalCodeDisplay()">
                 <div id="plusMedalCodeText" style="margin-top:6px; color:#dc2626; font-weight:bold; font-size:12px;">โค้ดที่เพิ่มคือ -</div>
 
                 <div id="plusMedalPreviewWrap" style="margin-top:10px; display:none;">
@@ -584,7 +584,7 @@ if (rounded > 100) {
 } else {
     ratioSumEl.style.color = '#22c55e'; // เขียว
 }
-        out = `property.id=${sIds.join(',')}\nproperty.dupindex=${dIdx}\n\n# ITEM RATIO\nproperty.ratio=${ras.join(',')}\n\n# ANNOUNCE\nproperty.announce=0,1,2,3\n\n# MESSAGE\nproperty.message=ได้รับไอเทม [ %s ]!\n\n\n///////////////////////////////////////////////////////////////\n\n${gName}.prizelist=${nIds.join(',')}\n${gName}.graded=true\n${gName}.graded.border=0,1,2,3,4${medalId ? `\n${gName}.medalid=${medalId}` : ""}\n\n${gName}_meter.count=10,50,100,150,200,301\n${gName}_meter.prize=medal_ga2:1,medal_ga2:2,medal_ga2:3,5000rm,card_kaminari:1,sacc_bt_red+sub_card_saintthunder_r:1\n${gName}_meter.noloop=true`;
+        out = `property.id=${sIds.join(',')}\nproperty.dupindex=${dIdx}\n\n# ITEM RATIO\nproperty.ratio=${ras.join(',')}\n\n# ANNOUNCE\nproperty.announce=0,1,2,3\n\n# MESSAGE\nproperty.message=ได้รับไอเทม [ %s ]!\n\n\n///////////////////////////////////////////////////////////////\n\n${gName}.prizelist=${nIds.join(',')}\n${gName}.graded=true\n${gName}.graded.border=0,1,2,3,4${medalId ? `\n${gName}.medalid=${medalId}` : ""}\n\n${gName}_meter.count=10,50,100,150,200,301\n${gName}_meter.prize=medal_event_gasha:1,medal_event_gasha:2,medal_event_gasha:3,5000rm,card_kaminari:1,sacc_bt_red+sub_card_saintthunder_r:1\n${gName}_meter.noloop=true`;
     } else if (currentCat !== 'splitter' && currentCat !== 'gaicon') {
         const num = getV('number') || "X"; const n = getV('name') || ""; const idV = getV('id'); const d = getV('desc').replace(/\n/g, "\\n");
         if (currentCat=="coupon") out=`coupon${num}.id=${idV}\ncoupon${num}.name=${n}\ncoupon${num}.icon=${fixI(getV('icon'))}\ncoupon${num}.desc=${d}\ncoupon${num}.type=5\ncoupon${num}.value=0\ncoupon${num}.period=40`;
@@ -1002,9 +1002,9 @@ function loadLottoPreset(t) {
         epic: {
             id: "oracle_epic",
             skip: 5,
-            medal: "medal_ga3:1",
+            medal: "medal_limited_gasha:1",
 			dupindex: "32",
-			medalId: "medal_ga3",
+			medalId: "medal_limited_gasha",
             items: [
                 ["gungnir_r2", "0.1"], ["gungnir_r", "0.2"], ["gungnir", "0.3"], ["mujun_gold", "0.2"], ["ga2_bsuit", "0.3"],
                 ["treasurebox_element_card:2", "6.6"], ["treasurebox_element_card:4", "5"],
@@ -1014,7 +1014,7 @@ function loadLottoPreset(t) {
                 ["card373:2", "0.5"], ["challenge11:2", "0.5"], ["challenge03:2", "0.5"],
                 ["card4001:2", "8.4"], ["card4002:2", "8.4"], ["card4003:2", "8.2"],
                 ["aw_empty:5", "10"], ["robo_dx:15", "10"], ["robo_dxb:15", "10"],
-                ["sub_card_random_1:1", "2"], ["5000gm", "19.8"], ["medal_ga3:5", "0"]
+                ["sub_card_random_1:1", "2"], ["5000gm", "19.8"], ["medal_limited_gasha:5", "0"]
             ]
         },
 
@@ -1022,9 +1022,9 @@ function loadLottoPreset(t) {
         epic2900: {
             id: "oracle_epic_2900",
             skip: 5,
-            medal: "medal_ga_epic:1",
+            medal: "medal_epic_gasha:1",
 			dupindex: "32",
-            medalId: "medal_ga_epic",
+            medalId: "medal_epic_gasha",
             items: [
                 ["stalker_remake", "0.05"], ["tonfa_plasma_remake", "0.25"], ["parasite", "0.3"], ["jugger", "0.2"], ["plasmash", "0.3"],
                 ["treasurebox_element_card:2", "6.6"], ["treasurebox_element_card:4", "5"],
@@ -1034,7 +1034,7 @@ function loadLottoPreset(t) {
                 ["card373:2", "0.5"], ["challenge11:2", "0.5"], ["challenge03:2", "0.5"],
                 ["card4001:2", "8.4"], ["card4002:2", "8.4"], ["card4003:2", "8.2"],
                 ["aw_empty:5", "10"], ["robo_dx:15", "10"], ["robo_dxb:15", "10"],
-                ["sub_card_random_1:1", "2"], ["5000gm", "19.8"], ["medal_ga_epic:5", "0"]
+                ["sub_card_random_1:1", "2"], ["5000gm", "19.8"], ["medal_epic_gasha:5", "0"]
             ]
         },
 
@@ -1216,12 +1216,12 @@ free_lotto: {
         activity: {
             id: "activity_event",
             skip: 0,
-            medal: "medal_ga2:1",
+            medal: "medal_event_gasha:1",
 			dupindex: "5",
-			medalId: "medal_ga2",
+			medalId: "medal_event_gasha",
             items: [
                 ["tao", "0.3"], ["ikkaku", "0.3"], ["swimring", "0.3"], ["dragon_master_blue", "0.3"], ["mechasuit", "0.3"],
-                ["medal_ga2:5", "0"], ["treasurebox_element_card:1", "5"],
+                ["medal_event_gasha:5", "0"], ["treasurebox_element_card:1", "5"],
                 ["card41:1", "0.5"], ["card40:1", "0.7"], ["card39:1", "0.9"], ["card38:1", "1.1"], ["card37:1", "1.3"],
                 ["card76:1", "0.5"], ["challenge01:1", "0.5"], ["card350:1", "0.5"], ["card351:1", "0.5"], ["card132:1", "0.5"],
                 ["challenge07:1", "0.5"], ["challenge06:1", "0.5"], ["challenge02:1", "0.5"], ["card353:1", "0.5"],
@@ -1430,9 +1430,9 @@ itemB\tGashapon Stone2 x 100
 - เริ่มเลข shopitem = ใส่ตัวเลข
 
 [MAP ID]
-Blue Gashapon Stone = medal_ga2
-Epic Gashapon Stone = medal_ga_epic
-Gashapon Stone2 = medal_ga3
+Blue Gashapon Stone = medal_event_gasha
+Epic Gashapon Stone = medal_epic_gasha
+Gashapon Stone2 = medal_limited_gasha
 Amped Gashapon Master Medal = medal_gashapon
 
 
@@ -1457,11 +1457,11 @@ shopitemXXXX.category=1,6
 
 ตัวอย่าง
 shopitem1065=itemB,0,0
-shopitem1065.medal1=medal_ga3:100
+shopitem1065.medal1=medal_limited_gasha:100
 shopitem1065.category=1,6
 
 shopitem1064=itemA,0,0
-shopitem1064.medal1=medal_ga2:200
+shopitem1064.medal1=medal_event_gasha:200
 shopitem1064.category=1,6`;
 
     const sections = parseGuideSections(rawText);
